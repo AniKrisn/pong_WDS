@@ -40,11 +40,32 @@ body {
 
     left: calc(var(--x) * 1vw);
     top: calc(var(--y) * 1vh);
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
 
     position: absolute;
     background-color: var(--ball-color);
     width: 1.25vh;
     height: 1.25vh;
     border-radius: 50%;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 5vh;
+    color: var(--foreground-color);
+    opacity: 80%;
+}
+
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+}
+
+.score > :first-child {
+    text-align: right;
+    border-right: .5vh solid var(--ball-color);
 }
