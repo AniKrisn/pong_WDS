@@ -6,6 +6,7 @@
     --hue: 120;
     --saturation: 80%;
     --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --ball-color: hsl(var(--hue), var(--saturation), 85%);
     --background-color: hsl(var(--hue), var(--saturation), 20%);
 }
 
@@ -31,4 +32,19 @@ body {
 
 .paddle.right {
     right: 1vw;
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    left: calc(var(--x) * 1vw);
+    top: calc(var(--y) * 1vh);
+    transform: translateY(-50%);
+
+    position: absolute;
+    background-color: var(--ball-color);
+    width: 1.25vh;
+    height: 1.25vh;
+    border-radius: 50%;
 }
