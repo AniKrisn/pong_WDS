@@ -9,16 +9,26 @@ const computerScoreElem = document.getElementById("computer-score")
 
 let lastTime
 function update(time) {
+
     if (lastTime != null) {
         const delta = time - lastTime
-        // ball.update(delta)
+        ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()])
         computerPaddle.update(delta, ball.y)
 
         if (isLose()) handleLose()
+        if (isStart()) handleStart()
     }
 
     lastTime = time
     window.requestAnimationFrame(update)
+}
+
+function isStart() {
+    return parseInt(playerScoreElem.textContent) == 0 && parseInt(computerScoreElem.textContent) == 0
+}
+
+function handleStart() {
+    // need to add alert that says "first to 5"
 }
 
 function isLose() {
@@ -35,6 +45,13 @@ function handleLose() {
     }
     ball.reset()
     computerPaddle.reset()
+
+    if (playerScoreElem.textContent == 5) {
+        alert("win")
+    } else if (computerScoreElem.textContent == 5) {
+        alert("lose")
+    }
+
 }
 
 document.addEventListener("mousemove", e => {
