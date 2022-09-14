@@ -46,11 +46,18 @@ function handleLose() {
     ball.reset()
     computerPaddle.reset()
 
-    if (playerScoreElem.textContent == 5) {
+/*    if (playerScoreElem.textContent == 5) {
         alert("win")
     } else if (computerScoreElem.textContent == 5) {
         alert("lose")
     }
+*/
+
+    const hue = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--hue")
+    )
+
+    document.documentElement.style.setProperty("--hue", hue * 1.13)
 
 }
 
